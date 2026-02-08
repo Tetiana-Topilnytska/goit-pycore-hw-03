@@ -28,6 +28,10 @@ def get_numbers_ticket(min: int, max: int, quantity: int) -> list[int]:
         return []
     elif max > 1000:
         return []
+    elif min > max:
+        return []
+    elif max - min <= quantity:
+        return []
 
     numbers = random.sample(range(min, max + 1), quantity)
     numbers.sort()
