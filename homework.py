@@ -5,6 +5,10 @@ import re
 
 # Task 1
 def get_days_from_today(date: str) -> int:
+    """Return the day difference from today.
+
+    Prints "Invalid date" and returns None on bad input.
+    """
     try:
         date = datetime.strptime(date, "%Y-%m-%d").date()
         today_date = datetime.now().date()
@@ -16,6 +20,10 @@ def get_days_from_today(date: str) -> int:
 
 # Task 2
 def get_numbers_ticket(min: int, max: int, quantity: int) -> list[int]:
+    """Return sorted unique random numbers within bounds.
+
+    Expects min>=1, max<=1000, and a valid quantity; otherwise returns [].
+    """
     if min < 1:
         return []
     elif max > 1000:
@@ -28,6 +36,10 @@ def get_numbers_ticket(min: int, max: int, quantity: int) -> list[int]:
 
 # Task 3
 def normalize_phone(phone_number: str) -> str:
+    """Normalize a phone number to a +38... format.
+
+    If number already has country code 38, just add '+'; otherwise prefix '+38'.
+    """
     pattern = r"\D"
     clean_phone = re.sub(pattern, "", phone_number)
     if clean_phone.startswith("38"):
@@ -38,6 +50,10 @@ def normalize_phone(phone_number: str) -> str:
 
 # Task 4
 def get_upcoming_birthdays(users: list[dict]) -> list[dict]:
+    """Return upcoming birthdays in the next 7 days.
+
+    Weekend birthdays are shifted to the following Monday.
+    """
     today = datetime.today().date()
     to_congradulate = []
 
