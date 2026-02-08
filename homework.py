@@ -4,7 +4,7 @@ import re
 
 
 # Task 1
-def get_days_from_today(date):
+def get_days_from_today(date: str) -> int:
     try:
         date = datetime.strptime(date, "%Y-%m-%d").date()
         today_date = datetime.now().date()
@@ -15,7 +15,7 @@ def get_days_from_today(date):
 
 
 # Task 2
-def get_numbers_ticket(min, max, quantity):
+def get_numbers_ticket(min: int, max: int, quantity: int) -> list[int]:
     if min < 1:
         return []
     elif max > 1000:
@@ -27,7 +27,7 @@ def get_numbers_ticket(min, max, quantity):
 
 
 # Task 3
-def normalize_phone(phone_number):
+def normalize_phone(phone_number: str) -> str:
     pattern = r"\D"
     clean_phone = re.sub(pattern, "", phone_number)
     if clean_phone.startswith("38"):
@@ -37,7 +37,7 @@ def normalize_phone(phone_number):
 
 
 # Task 4
-def get_upcoming_birthdays(users):
+def get_upcoming_birthdays(users: list[dict]) -> list[dict]:
     today = datetime.today().date()
     to_congradulate = []
 
