@@ -67,3 +67,38 @@ def get_upcoming_birthdays(users: list[dict]) -> list[dict]:
                 )
 
     return to_congradulate
+
+
+if __name__ == "__main__":
+    print("Task 1")
+    print(get_days_from_today("2021-10-09"))
+    print()
+
+    print("Task 2")
+    lottery_numbers = get_numbers_ticket(1, 49, 6)
+    print("Ваші лотерейні числа:", lottery_numbers)
+    print()
+
+    print("Task 3")
+    raw_numbers = [
+        "067\\t123 4567",
+        "(095) 234-5678\\n",
+        "+380 44 123 4567",
+        "380501234567",
+        "    +38(050)123-32-34",
+        "     0503451234",
+        "(050)8889900",
+        "38050-111-22-22",
+        "38050 111 22 11   ",
+    ]
+    sanitized_numbers = [normalize_phone(num) for num in raw_numbers]
+    print("Нормалізовані номери телефонів для SMS-розсилки:", sanitized_numbers)
+    print()
+
+    print("Task 4")
+    users = [
+        {"name": "John Doe", "birthday": "1985.02.14"},
+        {"name": "Jane Smith", "birthday": "1990.02.10"},
+    ]
+    upcoming_birthdays = get_upcoming_birthdays(users)
+    print("Список привітань на цьому тижні:", upcoming_birthdays)
